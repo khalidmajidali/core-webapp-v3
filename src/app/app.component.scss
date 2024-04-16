@@ -1,0 +1,66 @@
+$appBackgroundColor: #eef0f4;
+$appCardBackgroundColor: #ffffff;
+$appCardBorderRadius: 12px;
+$appCardBoxShadow: 0px 4px 20px rgba(170, 169, 184, 0.1);
+
+:root {
+    --core-app-background-color: #{$appBackgroundColor};
+    --core-app-card-background-color: #{$appCardBackgroundColor};
+    --core-app-card-border-radius: #{$appCardBorderRadius};
+    --core-app-card-box-shadow: #{$appCardBoxShadow};
+}
+
+#main {
+    background: $appBackgroundColor;
+    margin: 0;
+    padding: 15px;
+
+    #left-nav {
+        width: 86px;
+        height: calc(100vh - 30px);
+        background: $appCardBackgroundColor;
+        border-radius: $appCardBorderRadius;
+        padding: 20px 19px;
+        box-shadow: $appCardBoxShadow;
+        display: flex;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+
+        #branding {
+            width: 44px;
+            height: 44px;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    #top-nav {
+        width: calc(100vw - 131px);
+        height: 80px;
+        margin: 0 0 0 101px;
+        padding: 20px 24px;
+        background: $appCardBackgroundColor;
+        border-radius: $appCardBorderRadius;
+        box-shadow: $appCardBoxShadow;
+        position: fixed;
+    }
+
+    #main-content {
+        width: calc(100vw - 131px);
+        min-height: calc(100vh - 30px);
+        margin: 0 0 0 101px;
+        padding: 110px 0 0 0;
+        display: inline-block;
+        clear: both;
+    }
+}
+

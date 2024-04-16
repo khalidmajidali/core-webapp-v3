@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+body {
+    margin: 0;
+    padding: 0;
+}
+// primeNg overrides
+.p-inputtext {
+    height: 40px;
+}
+
+.p-button.p-button-icon-only {
+    width: 48px;
+    height: 48px;
+}
