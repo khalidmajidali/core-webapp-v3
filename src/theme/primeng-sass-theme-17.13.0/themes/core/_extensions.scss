@@ -1,0 +1,140 @@
+// CORE Custom Colors
+$appBackgroundColor: #eef0f4;
+$appCardBackgroundColor: #ffffff;
+$appCardBorderRadius: 12px;
+$appFormFieldBackgroundColor: #f2f6fa;
+$appFormFieldBorderRadius: 6px;
+$appFormFieldPlaceholderColor: #7D8FA9;
+$appIconColor: #586a84;
+$appActiveIconColor: #1e1e1e;
+$appActiveButtonBackgroundColor: #E5F3FF;
+$appCardBoxShadow: 0px 4px 20px rgba(170, 169, 184, 0.1);
+
+
+:root {
+    --core-app-background-color: #{$appBackgroundColor};
+    --core-app-card-background-color: #{$appCardBackgroundColor};
+    --core-app-card-border-radius: #{$appCardBorderRadius};
+    --core-app-card-box-shadow: #{$appCardBoxShadow};
+}
+
+/* Customizations to the designer theme should be defined here */
+body {
+    margin: 0;
+    padding: 0;
+}
+// primeNg overrides
+.p-inputtext {
+    width: 100%;
+    height: 40px;
+}
+
+.p-avatar {
+    width: 40px;
+    height: 40px;
+}
+
+// CORE Custom Styles
+#main {
+    background: $appBackgroundColor;
+    margin: 0;
+    padding: 15px;
+
+    #left-nav, #top-nav {
+        .p-button {
+            width: 48px;
+            height: 48px;
+            background-color: transparent;
+            border-radius: $appFormFieldBorderRadius;
+            border-color: transparent;
+            color: $appIconColor;
+        
+            &:hover, &:active, &:focus, &.active {
+                background-color: $appActiveButtonBackgroundColor;
+                color: $appActiveIconColor;
+            }
+        }
+    }
+
+    #left-nav {
+        width: 86px;
+        height: calc(100vh - 30px);
+        background: $appCardBackgroundColor;
+        border-radius: $appCardBorderRadius;
+        padding: 20px 19px;
+        box-shadow: $appCardBoxShadow;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+
+        #branding {
+            width: 44px;
+            height: 44px;
+            margin: 0 0 25px;
+
+            img {
+                width: 44px;
+                height: auto;
+                display: inline-block;
+            }
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            li {
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    #top-nav {
+        width: calc(100vw - 131px);
+        height: 80px;
+        margin: 0 0 0 101px;
+        padding: 20px 24px;
+        background: $appCardBackgroundColor;
+        border-radius: $appCardBorderRadius;
+        box-shadow: $appCardBoxShadow;
+        position: fixed;
+
+        .p-button {
+            width: 40px;
+            height: 40px;
+        }
+
+        .p-input-icon-left {
+            width: calc(100% - 60px);
+            margin-left: 20px;
+            vertical-align: top;
+
+            i:first-of-type {
+                font-size: 14px;
+                top: calc(50% + 2px);
+                left: 10px;
+                color: $appIconColor;
+            }
+            
+            .p-inputtext {
+                padding-left: 36px;
+                background: $appFormFieldBackgroundColor;
+                border: none;
+                font-size: 14px;
+            }
+        }
+    }
+
+    #main-content {
+        width: calc(100vw - 131px);
+        min-height: calc(100vh - 30px);
+        margin: 0 0 0 101px;
+        padding: 110px 0 0 0;
+        display: inline-block;
+        clear: both;
+    }
+}
+
