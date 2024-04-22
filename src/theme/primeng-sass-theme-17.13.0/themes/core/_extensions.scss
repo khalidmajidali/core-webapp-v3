@@ -126,6 +126,18 @@ body {
                 font-size: 14px;
             }
         }
+
+        .top-nav-controls {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+
+            .control-item {
+                margin-left: 14px;
+                display: flex;
+            }
+        }
     }
 
     #main-content {
