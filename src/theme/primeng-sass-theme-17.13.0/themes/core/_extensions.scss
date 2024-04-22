@@ -1,15 +1,19 @@
 // CORE Custom Colors
 $appBackgroundColor: #eef0f4;
+$appBrandColor: #CE2F2F;
+$appTextColorDark: #3B4758;
+$appTextColorLight: #586a84;
+$appTextColorBlue: #1488F3;
 $appCardBackgroundColor: #ffffff;
+$appCardHeaderBackgroundColor: #f9f9f9;
 $appCardBorderRadius: 12px;
 $appFormFieldBackgroundColor: #f2f6fa;
 $appFormFieldBorderRadius: 6px;
 $appFormFieldPlaceholderColor: #7D8FA9;
 $appIconColor: #586a84;
-$appActiveIconColor: #1e1e1e;
+$appIconColorActive: #1e1e1e;
 $appActiveButtonBackgroundColor: #E5F3FF;
 $appCardBoxShadow: 0px 4px 20px rgba(170, 169, 184, 0.1);
-
 
 :root {
     --core-app-background-color: #{$appBackgroundColor};
@@ -22,25 +26,137 @@ $appCardBoxShadow: 0px 4px 20px rgba(170, 169, 184, 0.1);
 body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    background: $appBackgroundColor;
+
+    &:before, &:after {
+        content: "";
+        width: 100vw;
+        height: 110px;
+        background: $appBackgroundColor;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    &:after {
+        width: calc(100vw - 20px);
+        height: 15px;
+        top: auto;
+        bottom: 0;
+    }
 }
-// primeNg overrides
+
+
+// PrimeNg Overrides
+
+.p-card {
+    border-radius: $appCardBorderRadius;
+    box-shadow: $appCardBoxShadow;
+
+    .p-card-header {
+        padding: 15px 30px;
+        background: $appCardHeaderBackgroundColor;
+        border-top-right-radius: $appCardBorderRadius;
+        border-top-left-radius: $appCardBorderRadius;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+
+        .icon, .pi {
+            color: $appIconColor;
+            display: inline-block;
+    
+            &:hover, &:focus, &:active {
+                color: $appIconColorActive;
+            }
+        }
+
+        & > div {
+            flex-grow: 1;
+        }
+
+        .card-title {
+
+            h2 {
+                font-weight: 500;
+                color:  $appTextColorDark;
+                font-size: 18px;
+                margin: 0;
+                display: inline-block;
+            }
+        }
+
+        .card-controls {
+            height: 20px;
+            display: flex;
+            justify-content: flex-end;
+            flex-grow: 1;
+        }
+
+        .p-button {
+            width: 20px;
+            height: 20px;
+            margin-left: 10px;
+            background: transparent;
+            border: none;
+            outline: none;
+        }
+    }
+
+    .card-header-tabs {
+        list-style: none;
+        margin: 0 10px 0 0;
+        padding: 0;
+        display: flex;
+
+        li {
+            margin-left: 20px;
+
+            a {
+                text-decoration: none;
+                font-size: 14px;
+                color: $appTextColorLight;
+
+                &:hover {
+                    color: $appTextColorBlue;
+                }
+
+                &.active {
+                    font-weight: 600;
+                    color: $appTextColorDark;
+
+                }
+            }
+            
+        }
+    }
+
+    .p-card-body {
+        padding: 15px 30px;
+
+        .p-card-content {
+            padding: 0;
+        }
+
+    }
+}
+
 .p-inputtext {
     width: 100%;
     height: 40px;
 }
 
-.p-avatar {
-    width: 40px;
-    height: 40px;
-}
 
 // CORE Custom Styles
 #main {
-    background: $appBackgroundColor;
     margin: 0;
     padding: 15px;
 
     #left-nav, #top-nav {
+        z-index: 2;
+
         .p-button {
             width: 48px;
             height: 48px;
@@ -51,7 +167,7 @@ body {
         
             &:hover, &:active, &:focus, &.active {
                 background-color: $appActiveButtonBackgroundColor;
-                color: $appActiveIconColor;
+                color: $appIconColorActive;
             }
         }
     }
@@ -101,6 +217,9 @@ body {
         border-radius: $appCardBorderRadius;
         box-shadow: $appCardBoxShadow;
         position: fixed;
+        z-index: 1001;
+
+        
 
         .p-button {
             width: 40px;
@@ -111,10 +230,9 @@ body {
             width: calc(100% - 60px);
             margin-left: 20px;
             vertical-align: top;
+            position: relative;
 
             i:first-of-type {
-                font-size: 14px;
-                top: calc(50% + 2px);
                 left: 10px;
                 color: $appIconColor;
             }
@@ -125,13 +243,39 @@ body {
                 border: none;
                 font-size: 14px;
             }
+
+            .quinn-container {
+                width: 20px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                right: 10px;
+                top: 0;
+            }
+        }
+        
+        .p-avatar {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+            transition: all 0.5s ease-in-out;
+            
+            &:hover {
+                outline: 2px solid rgba(#CE2F2F, 0.5);
+            }
         }
 
         .top-nav-controls {
+            height: 40px;
             display: flex;
             flex-direction: row;
-            align-items: center;
+            align-items: top;
             justify-content: flex-end;
+            vertical-align: top;
 
             .control-item {
                 margin-left: 14px;
@@ -141,12 +285,79 @@ body {
     }
 
     #main-content {
-        width: calc(100vw - 131px);
-        min-height: calc(100vh - 30px);
-        margin: 0 0 0 101px;
-        padding: 110px 0 0 0;
+        width: calc(100vw - 115px);
+        max-height: calc(100vh - 105px);
+        margin: 90px 0 0 101px;
+        padding: 5px 1px 7px 0;
         display: inline-block;
-        clear: both;
+        overflow-x: hidden;
+        overflow-y: scroll;
+
+        // CORE generic info Label and Value Styles
+        .core-info {
+            margin-bottom: 20px;
+
+            .core-label, .core-value {
+                font-size: 14px;
+                display: block;
+    
+            }
+    
+            .core-label {
+                font-weight: 400;
+                color: $appTextColorLight;
+            }
+    
+            .core-value {
+                font-weight: 600;
+                color: $appTextColorDark;
+            }
+        }
+    }
+
+    .icon {
+        color: $appIconColor;
+        display: inline-block;
+
+        &:hover, &:focus, &:active {
+            color: $appIconColorActive;
+        }
+
+        &.icon-menu {
+            width: 18px;
+            height: 12px;
+            background: url(../../../../assets/images/icon-menu.svg) no-repeat center center / 18px 12px;
+        }
+
+        &.icon-search {
+            width: 14.67px;
+            height: 14.65px;
+            background: url(../../../../assets/images/icon-search.svg) no-repeat center center / 14.67px 14.65px;
+        }
+
+        &.icon-quinn {
+            width: 12px;
+            height: 19px;
+            background: url(../../../../assets/images/icon-quinn.svg) no-repeat center center / 12px 19px;
+        }
+        
+        &.icon-hub {
+            width: 16px;
+            height: 16px;
+            background: url(../../../../assets/images/icon-hub.svg) no-repeat center center / 16px 16px;
+        }
+
+        &.icon-notifications {
+            width: 16px;
+            height: 20px;
+            background: url(../../../../assets/images/icon-notifications.svg) no-repeat center center / 16px 20px;
+        }
+
+        &.icon-settings {
+            width: 19.49px;
+            height: 20px;
+            background: url(../../../../assets/images/icon-settings.svg) no-repeat center center / 19.49px 20px;
+        }
     }
 }
 

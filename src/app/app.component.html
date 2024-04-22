@@ -5,8 +5,105 @@
 
     <section id="main-content">
         <div class="grid">
-            <div class="col-12">
-                <div class="text-center p-3 border-round-sm bg-primary font-bold">2</div>
+            <div class="col-3">
+                <div class="grid">
+                    <div class="col-12">
+                        <p-card>
+                            <ng-template pTemplate="header">
+                                <div class="card-title">
+                                    <h2>Service Information</h2>
+                                </div>
+                                <div class="card-controls">
+                                    <!-- Edit -->
+                                    <span class="control-item">
+                                        <p-button icon="pi pi-pen-to-square"></p-button>
+                                        <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+                                        
+                                    </span>
+
+                                    <!-- Expand -->
+                                    <span class="control-item">
+                                        <p-button icon="pi pi-arrow-up-right-and-arrow-down-left-from-center"></p-button>
+                                        <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+                                    </span>
+                                </div>
+                            </ng-template>
+                            <div class="core-info">
+                                <span class="core-label">Voyant ID</span>
+                                <span class="core-value">CL-231210-000007</span>
+                            </div>
+                            <div class="core-info">
+                                <span class="core-label">Special Instructions</span>
+                                <span class="core-value">N/A</span>
+                            </div>
+                            <div class="core-info">
+                                <span class="core-label">Adjuster</span>
+                                <span class="core-value">N/A</span>
+                            </div>
+                        </p-card>
+                    </div>
+                    <div class="col-12">
+                        <p-card header="Advanced Card" subheader="Card Subheader">
+                            <ng-template pTemplate="header">
+                                <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
+                            </ng-template>
+        
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+                                quas!
+                            </p>
+                            <ng-template pTemplate="footer">
+                                <p-button label="Save" icon="pi pi-check"></p-button>
+                                <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+                            </ng-template>
+                        </p-card>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="grid">
+                    <div class="col-12">
+                        <p-card>
+                            <ng-template pTemplate="header">
+                                <div class="card-title">
+                                    <h2>Asbetos (ASB-231220-00012)</h2>
+                                    <p-button icon="pi pi-ellipsis-v"></p-button>
+                                </div>
+                                <div class="card-controls">
+                                    <!-- Tab Navigation -->
+                                    <ul class="card-header-tabs">
+                                        <li><a href="" class="active">Project Details</a></li>
+                                        <li><a href="">Tasks</a></li>
+                                        <li><a href="">Actions</a></li>
+                                        <li><a href="">Accounts</a></li>
+                                        <li><a href="">Activity</a></li>
+                                        <li><a href="">Invoices</a></li>
+                                        <li><a href="">Estimates</a></li>
+                                        <li><a href="">Bills</a></li>
+                                        <li><a href="">Payments</a></li>
+                                        <li><a href="">Inspections</a></li>
+                                    </ul>
+                                    <!-- Expand -->
+                                    <span class="control-item">
+                                        <p-button icon="pi pi-arrow-up-right-and-arrow-down-left-from-center"></p-button>
+                                        <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+                                    </span>
+                                </div>
+                            </ng-template>
+                            <div class="card-body-tab-content">
+                                <div>
+                                    aaa
+                                </div>
+                                <div>
+                                    bbb
+                                </div>
+                                <div>
+                                    ccc
+                                </div>
+                            </div>
+                        </p-card>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
