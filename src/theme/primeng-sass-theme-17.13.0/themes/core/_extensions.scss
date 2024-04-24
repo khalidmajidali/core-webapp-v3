@@ -14,6 +14,12 @@ $appIconColor: #586a84;
 $appIconColorActive: #1e1e1e;
 $appActiveButtonBackgroundColor: #E5F3FF;
 $appCardBoxShadow: 0px 4px 20px rgba(170, 169, 184, 0.1);
+$appButtonHelpColor: #F21673;
+
+$appInprogress: #0E8FD8;
+$appComplete: #1ED80E;
+$appError: #D80E0E;
+$appWorning: #F69B11;
 
 :root {
     --core-app-background-color: #{$appBackgroundColor};
@@ -32,7 +38,7 @@ body {
     &:before, &:after {
         content: "";
         width: 100vw;
-        height: 110px;
+        height: 105px;
         background: $appBackgroundColor;
         position: fixed;
         top: 0;
@@ -50,6 +56,17 @@ body {
 
 
 // PrimeNg Overrides
+.flex {
+    display: flex;
+
+    &.justify-end {
+        justify-content: flex-end;
+    }
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
 
 .p-card {
     border-radius: $appCardBorderRadius;
@@ -148,8 +165,43 @@ body {
     height: 40px;
 }
 
+.p-button {
+    
+    .p-label {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    
+    &.p-button-help {
+        padding: 12px 12px;
+        color: $appButtonHelpColor;
+        border-radius: $appCardBorderRadius;
+
+        &:hover {
+            background: rgba($appButtonHelpColor, 0.04);
+        }
+    }
+}
+
+.p-tooltip {
+    
+    .p-tooltip-text {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}
 
 // CORE Custom Styles
+
+h1, h2, h3 {
+    font-size: 18px;
+    color: $appTextColorDark;
+}
+
+h3 {
+    color: $appTextColorLight;
+}
+
 #main {
     margin: 0;
     padding: 15px;
@@ -219,8 +271,6 @@ body {
         position: fixed;
         z-index: 1001;
 
-        
-
         .p-button {
             width: 40px;
             height: 40px;
@@ -280,18 +330,37 @@ body {
             .control-item {
                 margin-left: 14px;
                 display: flex;
+                position: relative;
+
+                .notification-available {
+                    width: 10px;
+                    height: 10px;
+                    background: $appButtonHelpColor;
+                    border-radius: 10px;
+                    border: 2px solid white;
+                    display: inline-block;
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                }
             }
         }
     }
 
     #main-content {
-        width: calc(100vw - 115px);
+        width: calc(100vw - 130px);
         max-height: calc(100vh - 105px);
         margin: 90px 0 0 101px;
-        padding: 5px 1px 7px 0;
+        padding: 0 1px 7px 0;
         display: inline-block;
-        overflow-x: hidden;
-        overflow-y: scroll;
+
+        h1 {
+            margin: 24px 0;
+
+            span {
+                color: $appTextColorLight;
+            }
+        }
 
         // CORE generic info Label and Value Styles
         .core-info {
@@ -311,6 +380,115 @@ body {
             .core-value {
                 font-weight: 600;
                 color: $appTextColorDark;
+            }
+        }
+
+        .job-status {
+
+            h3 {
+                margin: 0 0 0 0;
+            }
+
+            .job-status-item {
+                margin-right: 10px;
+                padding: 20px 5px;
+
+                &:first-child {
+                    padding-left: 0;
+                }
+
+                .job-status-item-content {
+                    width: 200px;
+                    padding: 12px 10px;
+                    border-radius: $appCardBorderRadius;
+                    box-shadow: $appCardBoxShadow;
+                    border: 1px solid transparent;
+
+                    &:hover, &.active {
+                        border-color: $appIconColor;
+                        cursor: pointer;
+                    }
+    
+                    h4 {
+                        margin: 0 0 8px;
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: $appTextColorLight;
+                        display: flex;
+                        align-items: center;
+    
+                        i {
+                            margin-right: 5px;
+                        }
+                    }
+
+                    &.inprogress {
+                        
+                        h4 {
+                            color: $appInprogress;
+                        }
+                    }
+
+                    &.complete {
+
+                        h4 {
+                            color: $appComplete;
+                        }
+                    }
+
+                    &.error {
+
+                        h4 {
+                            color: $appError;
+                        }
+                    }
+
+                    &.warning {
+
+                        h4 {
+                            color: $appWorning;
+                        }
+                    }
+    
+                    .job-start-date, .job-end-date {
+                        padding-left: 20px;
+                        font-size: 12px;
+                        color: $appTextColorLight;
+                        display: block;
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            width: 5px;
+                            height: 5px;
+                            background: #F0F0F0;
+                            border-radius: 5px;
+                            display: inline-block;
+                            position: absolute;
+                            top: 5px;
+                            left: 6px;
+                        }
+                    }
+
+                    .job-start-date {
+                        margin-bottom: 7px;
+
+                        &::after {
+                            content: "";
+                            width: 1px;
+                            height: 12px;
+                            background: #F0F0F0;
+                            display: inline-block;
+                            position: absolute;
+                            top: 12px;
+                            left: 8px;
+                        }
+                    }
+
+                    .job-end-date {
+                        margin-bottom: 6px;
+                    }
+                }
             }
         }
     }
@@ -357,6 +535,12 @@ body {
             width: 19.49px;
             height: 20px;
             background: url(../../../../assets/images/icon-settings.svg) no-repeat center center / 19.49px 20px;
+        }
+
+        &.icon-training {
+            width: 23px;
+            height: 19px;
+            background: url(../../../../assets/images/icon-training.svg) no-repeat center center / 23px 19px;
         }
     }
 }

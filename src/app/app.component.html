@@ -6,6 +6,19 @@
     <section id="main-content">
         <div class="grid">
             <div class="col-3">
+                <h1><span>Claims:</span> Service: CL-231219-000007</h1>
+            </div>
+            <div class="col-6">
+                
+            </div>
+            <div class="col-3">
+                <div class="flex justify-end mt-10">
+                    <p-button label="Get Training Here" icon="icon icon-training" [outlined]="true" severity="help"></p-button>
+                </div>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="col-3">
                 <div class="grid">
                     <div class="col-12">
                         <p-card>
@@ -16,14 +29,14 @@
                                 <div class="card-controls">
                                     <!-- Edit -->
                                     <span class="control-item">
-                                        <p-button icon="pi pi-pen-to-square"></p-button>
+                                        <p-button icon="pi pi-pen-to-square" pTooltip="Edit" tooltipPosition="top"></p-button>
                                         <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
                                         
                                     </span>
 
                                     <!-- Expand -->
                                     <span class="control-item">
-                                        <p-button icon="pi pi-arrow-up-right-and-arrow-down-left-from-center"></p-button>
+                                        <p-button icon="pi pi-arrow-up-right-and-arrow-down-left-from-center" pTooltip="Expand" tooltipPosition="top"></p-button>
                                         <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
                                     </span>
                                 </div>
@@ -85,14 +98,27 @@
                                     </ul>
                                     <!-- Expand -->
                                     <span class="control-item">
-                                        <p-button icon="pi pi-arrow-up-right-and-arrow-down-left-from-center"></p-button>
+                                        <p-button icon="pi pi-arrow-up-right-and-arrow-down-left-from-center" pTooltip="Expand" tooltipPosition="top"></p-button>
                                         <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
                                     </span>
                                 </div>
                             </ng-template>
                             <div class="card-body-tab-content">
-                                <div>
-                                    aaa
+                                <div class="tab">
+                                    <div class="job-status">
+                                        <h3>Status</h3>
+                                        <p-carousel [value]="jobstatuses" [numVisible]="6" [numScroll]="1" [responsiveOptions]="responsiveOptions" showNavigators="false" showIndicators="false">
+                                            <ng-template let-jobstatus pTemplate="item">
+                                                <div class="job-status-item">
+                                                    <div class="job-status-item-content {{ jobstatus.color }}" [ngClass]="jobstatus.currentlyActive ? 'active' : '' ">
+                                                        <h4><i class="{{ jobstatus.icon }}"></i> {{ jobstatus.status }}</h4>
+                                                        <span class="job-start-date">{{ jobstatus.startDate }}</span>
+                                                        <span class="job-end-date">{{ jobstatus.endDate }}</span>
+                                                    </div>
+                                                </div>
+                                            </ng-template>
+                                        </p-carousel>
+                                    </div>
                                 </div>
                                 <div>
                                     bbb
