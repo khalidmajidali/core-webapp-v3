@@ -70,7 +70,7 @@ body {
 
 .p-card {
     border-radius: $appCardBorderRadius;
-    box-shadow: $appCardBoxShadow;
+    box-shadow: none;
 
     .p-card-header {
         padding: 15px 30px;
@@ -95,6 +95,8 @@ body {
         }
 
         .card-title {
+            display: flex;
+            flex-direction: row;
 
             h2 {
                 font-weight: 500;
@@ -193,13 +195,21 @@ body {
 
 // CORE Custom Styles
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
+    margin: 0;
     font-size: 18px;
     color: $appTextColorDark;
 }
 
 h3 {
     color: $appTextColorLight;
+    margin-bottom: 20px;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
 }
 
 #main {
@@ -369,7 +379,6 @@ h3 {
             .core-label, .core-value {
                 font-size: 14px;
                 display: block;
-    
             }
     
             .core-label {
@@ -384,29 +393,35 @@ h3 {
         }
 
         .job-status {
-
-            h3 {
-                margin: 0 0 0 0;
-            }
+            margin-bottom: 40px;
+            position: relative;
 
             .job-status-item {
-                margin-right: 10px;
-                padding: 20px 5px;
-
-                &:first-child {
-                    padding-left: 0;
-                }
+                margin-right: 15px;
+                padding: 0;
 
                 .job-status-item-content {
-                    width: 200px;
                     padding: 12px 10px;
                     border-radius: $appCardBorderRadius;
                     box-shadow: $appCardBoxShadow;
                     border: 1px solid transparent;
+                    position: relative;
 
-                    &:hover, &.active {
-                        border-color: $appIconColor;
-                        cursor: pointer;
+                    &:after, &:before {
+                        content: "";
+                        width: 5px;
+                        height: 5px;
+                        background: $appIconColor;
+                        border-radius: 5px;
+                        display: block;
+                        position: absolute;
+                        top: calc(50% - 2.5px);
+                        right: -2.5px;
+                        z-index: 1000;
+                    }
+
+                    &:before {
+                        left: -3px;
                     }
     
                     h4 {
@@ -457,7 +472,7 @@ h3 {
                         display: block;
                         position: relative;
 
-                        &::before {
+                        &:before {
                             content: "";
                             width: 5px;
                             height: 5px;
@@ -473,7 +488,7 @@ h3 {
                     .job-start-date {
                         margin-bottom: 7px;
 
-                        &::after {
+                        &:after {
                             content: "";
                             width: 1px;
                             height: 12px;
@@ -487,6 +502,76 @@ h3 {
 
                     .job-end-date {
                         margin-bottom: 6px;
+                    }
+
+                    &:hover, &.active {
+                        border-color: $appIconColor;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .p-carousel-item {
+                position: relative;
+
+                &:after {
+                    content: "";
+                    width: 9px;
+                    height: 1px;
+                    background: $appTextColorLight;
+                    display: inline-block;
+                    position: absolute;
+                    top: calc(50%);
+                    right: 3px;
+                }
+            }
+
+            .p-carousel-item[aria-label="0"] {
+
+                .job-status-item {
+                    padding-left: 0;
+
+                    .job-status-item-content {
+
+                        &::before {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .job-details {
+            margin-bottom: 20px;
+
+            h3 {
+                margin-bottom: 20px;
+            }
+
+            .core-info {
+                display: flex;
+                flex-grow: 1;
+
+                .core-label {
+                    width: 40%;
+                    display: inline-flex;
+                }
+
+                .core-value {
+                    width: 60%;
+                    display: inline-flex;
+                    flex-direction: column;
+                    
+                    a {
+                        text-decoration: none;
+                        color: $appBrandColor;
+                    }
+                }
+
+                &.value-right {
+
+                    .core-value {
+                        align-items: flex-end;
                     }
                 }
             }

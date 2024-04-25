@@ -10,6 +10,7 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { CarouselModule } from 'primeng/carousel';
 import { MenuModule } from 'primeng/menu';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { ToastModule } from 'primeng/toast';
 import { TooltipModule } from 'primeng/tooltip';
 
@@ -18,7 +19,7 @@ import { LeftNavComponent } from './left-nav/left-nav.component';
 
 @NgModule({
 	declarations: [AppComponent, TopNavComponent, LeftNavComponent],
-	imports: [BrowserModule, BrowserAnimationsModule, ButtonModule, CardModule, CarouselModule, AppRoutingModule, AvatarModule, AvatarGroupModule, MenuModule, ToastModule, TooltipModule ],
+	imports: [BrowserModule, BrowserAnimationsModule, ButtonModule, CardModule, CarouselModule, AppRoutingModule, AvatarModule, AvatarGroupModule, MenuModule, ToastModule, TooltipModule, ScrollPanelModule ],
 	providers: [],
 	bootstrap: [AppComponent],
 })

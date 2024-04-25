@@ -1,6 +1,6 @@
 <main id="main">
     <app-left-nav></app-left-nav>
-    
+
     <app-top-nav></app-top-nav>
 
     <section id="main-content">
@@ -9,11 +9,12 @@
                 <h1><span>Claims:</span> Service: CL-231219-000007</h1>
             </div>
             <div class="col-6">
-                
+
             </div>
             <div class="col-3">
                 <div class="flex justify-end mt-10">
-                    <p-button label="Get Training Here" icon="icon icon-training" [outlined]="true" severity="help"></p-button>
+                    <p-button label="Get Training Here" icon="icon icon-training" [outlined]="true"
+                        severity="help"></p-button>
                 </div>
             </div>
         </div>
@@ -29,14 +30,16 @@
                                 <div class="card-controls">
                                     <!-- Edit -->
                                     <span class="control-item">
-                                        <p-button icon="pi pi-pen-to-square" pTooltip="Edit" tooltipPosition="top"></p-button>
+                                        <p-button icon="pi pi-pen-to-square" pTooltip="Edit"
+                                            tooltipPosition="top"></p-button>
                                         <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
-                                        
+
                                     </span>
 
                                     <!-- Expand -->
                                     <span class="control-item">
-                                        <p-button icon="pi pi-arrow-up-right-and-arrow-down-left-from-center" pTooltip="Expand" tooltipPosition="top"></p-button>
+                                        <p-button icon="pi pi-arrow-up-right-and-arrow-down-left-from-center"
+                                            pTooltip="Expand" tooltipPosition="top"></p-button>
                                         <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
                                     </span>
                                 </div>
@@ -60,14 +63,17 @@
                             <ng-template pTemplate="header">
                                 <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
                             </ng-template>
-        
+
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur
+                                error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis,
+                                culpa ratione quam perferendis esse, cupiditate neque
                                 quas!
                             </p>
                             <ng-template pTemplate="footer">
                                 <p-button label="Save" icon="pi pi-check"></p-button>
-                                <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary" [style]="{ 'margin-left': '.5em' }"></p-button>
+                                <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary"
+                                    [style]="{ 'margin-left': '.5em' }"></p-button>
                             </ng-template>
                         </p-card>
                     </div>
@@ -98,34 +104,152 @@
                                     </ul>
                                     <!-- Expand -->
                                     <span class="control-item">
-                                        <p-button icon="pi pi-arrow-up-right-and-arrow-down-left-from-center" pTooltip="Expand" tooltipPosition="top"></p-button>
+                                        <p-button icon="pi pi-arrow-up-right-and-arrow-down-left-from-center"
+                                            pTooltip="Expand" tooltipPosition="top"></p-button>
                                         <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
                                     </span>
                                 </div>
                             </ng-template>
                             <div class="card-body-tab-content">
                                 <div class="tab">
-                                    <div class="job-status">
-                                        <h3>Status</h3>
-                                        <p-carousel [value]="jobstatuses" [numVisible]="6" [numScroll]="1" [responsiveOptions]="responsiveOptions" showNavigators="false" showIndicators="false">
-                                            <ng-template let-jobstatus pTemplate="item">
-                                                <div class="job-status-item">
-                                                    <div class="job-status-item-content {{ jobstatus.color }}" [ngClass]="jobstatus.currentlyActive ? 'active' : '' ">
-                                                        <h4><i class="{{ jobstatus.icon }}"></i> {{ jobstatus.status }}</h4>
-                                                        <span class="job-start-date">{{ jobstatus.startDate }}</span>
-                                                        <span class="job-end-date">{{ jobstatus.endDate }}</span>
+                                    <p-scrollPanel [style]="{ width: '100%', height: 'calc(100vh - 280px)' }">
+                                        <div class="job-status">
+                                            <h3>Status</h3>
+                                            <p-carousel [value]="jobstatuses" [numVisible]="6" [numScroll]="1"
+                                                [responsiveOptions]="responsiveOptions" showNavigators="false"
+                                                showIndicators="false">
+                                                <ng-template let-jobstatus pTemplate="item">
+                                                    <div class="job-status-item">
+                                                        <div class="job-status-item-content {{ jobstatus.color }}"
+                                                            [ngClass]="jobstatus.currentlyActive ? 'active' : '' ">
+                                                            <h4><i class="{{ jobstatus.icon }}"></i> {{ jobstatus.status
+                                                                }}
+                                                            </h4>
+                                                            <span class="job-start-date">{{ jobstatus.startDate
+                                                                }}</span>
+                                                            <span class="job-end-date">{{ jobstatus.endDate }}</span>
+                                                        </div>
+                                                    </div>
+                                                </ng-template>
+                                            </p-carousel>
+                                        </div>
+                                        <div class="job-details">
+                                            <h3>Details</h3>
+
+                                            <div class="grid">
+                                                <div class="col-4">
+                                                    <h4>Job Details</h4>
+                                                    <div class="core-info">
+                                                        <span class="core-label">Integration Type</span>
+                                                        <span class="core-value">CV</span>
+                                                    </div>
+                                                    <div class="core-info">
+                                                        <span class="core-label">Service Expert</span>
+                                                        <span class="core-value">Wakeel Ahmed</span>
+                                                    </div>
+                                                    <div class="core-info">
+                                                        <span class="core-label">QA Reviewer</span>
+                                                        <span class="core-value"></span>
+                                                    </div>
+                                                    <div class="core-info">
+                                                        <span class="core-label">Job Type</span>
+                                                        <span class="core-value">Fire</span>
+                                                    </div>
+                                                    <div class="core-info">
+                                                        <span class="core-label">Job Description</span>
+                                                        <span class="core-value"></span>
+                                                    </div>
+                                                    <h4 class="mt-5">Program Details</h4>
+                                                    <div class="core-info">
+                                                        <span class="core-label">Program</span>
+                                                        <span class="core-value"><a href="/progrf9-4306-a1ad-38082bcb7c2c/requirements">Standard Mitigation</a></span>
                                                     </div>
                                                 </div>
-                                            </ng-template>
-                                        </p-carousel>
-                                    </div>
+                                                <div class="col-4">
+                                                    <h4>Contact Information</h4>
+                                                    <div class="core-info">
+                                                        <span class="core-label">Main Contact</span>
+                                                        <span class="core-value">
+                                                            Edward Barney-DEMO
+                                                            <a href="">581-8818</a>
+                                                            <a href="mailto:edwardbarney.customer@gmail.com">edwardbarney.customer&#64;gmail.com</a>
+                                                        </span>
+                                                    </div>
+                                                    <div class="core-info">
+                                                        <span class="core-label">Customer</span>
+                                                        <span class="core-value">
+                                                            <a
+                                                                href="/accounts/view/8ec93954-e622-4d6d-b4aa-e9053c616dfb">Edward
+                                                                1 Barney 2-(205) 682-3745</a>
+                                                            <a href="tel:(205) 682-3745"> (205) 682-3745 </a>
+                                                        </span>
+                                                    </div>
+                                                    <div class="core-info">
+                                                        <span class="core-label">Customer Address</span>
+                                                        <span class="core-value">Street 8th, Suit#101, Birmingham, AL,
+                                                            35244, United States</span>
+                                                    </div>
+                                                    <div class="core-info">
+                                                        <span class="core-label">Client</span>
+                                                        <span class="core-value">
+                                                            <a href="/accounts/view/fd014405-e695-47a2-88eb-ed857574422d">United Group Insurance</a>
+                                                        </span>
+                                                    </div>
+                                                    <div class="core-info">
+                                                        <span class="core-label">Adjuster</span>
+                                                        <span class="core-value">Smith K.
+                                                            <a href="">700-0000 </a>
+                                                            <a href="mailto:UnitedGroupInsurance@example.com">UnitedGroupInsurance&#64;example.com</a>
+                                                        </span>
+                                                    </div>
+                                                    <div class="core-info">
+                                                        <span class="core-label">Provider</span>
+                                                        <span class="core-value"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <h4>Financial Details</h4>
+                                                    <div class="core-info value-right">
+                                                        <span class="core-label">Initial Estimate</span>
+                                                        <span class="core-value">$23230.00</span>
+                                                    </div>
+                                                    <div class="core-info value-right">
+                                                        <span class="core-label">Final Estimate</span>
+                                                        <span class="core-value">$4430.00</span>
+                                                    </div>
+                                                    <div class="core-info value-right">
+                                                        <span class="core-label">Job Invoice Total</span>
+                                                        <span class="core-value">$110.00</span>
+                                                    </div>
+                                                    <div class="core-info value-right">
+                                                        <span class="core-label">Job Received Amount</span>
+                                                        <span class="core-value">$0.00</span>
+                                                    </div>
+                                                    <div class="core-info value-right">
+                                                        <span class="core-label">Job Referral Fee</span>
+                                                        <span class="core-value">$0.00</span>
+                                                    </div>
+                                                    <div class="core-info value-right">
+                                                        <span class="core-label">Job Paid Amount</span>
+                                                        <span class="core-value">$3340.00</span>
+                                                    </div>
+                                                    <div class="core-info value-right">
+                                                        <span class="core-label">Job Balance Amount</span>
+                                                        <span class="core-value">$0.00</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </p-scrollPanel>
+                                </div>
+                                <!-- <div>
+                                    <p-scrollPanel [style]="{ width: '100%', height: 'calc(100vh - 280px)' }">
+                                    </p-scrollPanel>
                                 </div>
                                 <div>
-                                    bbb
-                                </div>
-                                <div>
-                                    ccc
-                                </div>
+                                    <p-scrollPanel [style]="{ width: '100%', height: 'calc(100vh - 280px)' }">
+                                    </p-scrollPanel>
+                                </div> -->
                             </div>
                         </p-card>
                     </div>
