@@ -44,18 +44,20 @@
                                     </span>
                                 </div>
                             </ng-template>
-                            <div class="core-info">
-                                <span class="core-label">Voyant ID</span>
-                                <span class="core-value">CL-231210-000007</span>
-                            </div>
-                            <div class="core-info">
-                                <span class="core-label">Special Instructions</span>
-                                <span class="core-value">N/A</span>
-                            </div>
-                            <div class="core-info">
-                                <span class="core-label">Adjuster</span>
-                                <span class="core-value">N/A</span>
-                            </div>
+                            <p-scrollPanel [style]="{ width: '100%', height: '165px' }">
+                                <div class="core-info">
+                                    <span class="core-label">Voyant ID</span>
+                                    <span class="core-value">CL-231210-000007</span>
+                                </div>
+                                <div class="core-info">
+                                    <span class="core-label">Special Instructions</span>
+                                    <span class="core-value">N/A</span>
+                                </div>
+                                <div class="core-info">
+                                    <span class="core-label">Adjuster</span>
+                                    <span class="core-value">N/A</span>
+                                </div>
+                            </p-scrollPanel>
                         </p-card>
                     </div>
                     <div class="col-12">
@@ -63,18 +65,19 @@
                             <ng-template pTemplate="header">
                                 <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
                             </ng-template>
-
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur
-                                error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis,
-                                culpa ratione quam perferendis esse, cupiditate neque
-                                quas!
-                            </p>
-                            <ng-template pTemplate="footer">
-                                <p-button label="Save" icon="pi pi-check"></p-button>
-                                <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary"
-                                    [style]="{ 'margin-left': '.5em' }"></p-button>
-                            </ng-template>
+                            <p-scrollPanel [style]="{ width: '100%', height: '200px' }">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur
+                                    error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis,
+                                    culpa ratione quam perferendis esse, cupiditate neque
+                                    quas!
+                                </p>
+                                <ng-template pTemplate="footer">
+                                    <p-button label="Save" icon="pi pi-check"></p-button>
+                                    <p-button label="Cancel" icon="pi pi-times" styleClass="p-button-secondary"
+                                        [style]="{ 'margin-left': '.5em' }"></p-button>
+                                </ng-template>
+                            </p-scrollPanel>
                         </p-card>
                     </div>
                 </div>
@@ -115,16 +118,14 @@
                                     <p-scrollPanel [style]="{ width: '100%', height: 'calc(100vh - 280px)' }">
                                         <div class="job-status">
                                             <h3>Status</h3>
-                                            <p-carousel [value]="jobstatuses" [numVisible]="6" [numScroll]="1"
+                                            <p-carousel [value]="jobStatuses" [numVisible]="6" [numScroll]="1"
                                                 [responsiveOptions]="responsiveOptions" showNavigators="false"
                                                 showIndicators="false">
                                                 <ng-template let-jobstatus pTemplate="item">
                                                     <div class="job-status-item">
                                                         <div class="job-status-item-content {{ jobstatus.color }}"
                                                             [ngClass]="jobstatus.currentlyActive ? 'active' : '' ">
-                                                            <h4><i class="{{ jobstatus.icon }}"></i> {{ jobstatus.status
-                                                                }}
-                                                            </h4>
+                                                            <h4><i class="{{ jobstatus.icon }}"></i> {{ jobstatus.status }}</h4>
                                                             <span class="job-start-date">{{ jobstatus.startDate
                                                                 }}</span>
                                                             <span class="job-end-date">{{ jobstatus.endDate }}</span>
@@ -170,18 +171,16 @@
                                                     <div class="core-info">
                                                         <span class="core-label">Main Contact</span>
                                                         <span class="core-value">
-                                                            Edward Barney-DEMO
-                                                            <a href="">581-8818</a>
+                                                            Edward Barney
+                                                            <a href="">(205) 581-8818</a>
                                                             <a href="mailto:edwardbarney.customer@gmail.com">edwardbarney.customer&#64;gmail.com</a>
                                                         </span>
                                                     </div>
                                                     <div class="core-info">
                                                         <span class="core-label">Customer</span>
                                                         <span class="core-value">
-                                                            <a
-                                                                href="/accounts/view/8ec93954-e622-4d6d-b4aa-e9053c616dfb">Edward
-                                                                1 Barney 2-(205) 682-3745</a>
-                                                            <a href="tel:(205) 682-3745"> (205) 682-3745 </a>
+                                                            <a href="/accounts/view/8ec93954-e622-4d6d-b4aa-e9053c616dfb">Edward Barney</a> 
+                                                            <a href="tel:(205) 682-3745">(205) 682-3745 </a>
                                                         </span>
                                                     </div>
                                                     <div class="core-info">
@@ -198,7 +197,7 @@
                                                     <div class="core-info">
                                                         <span class="core-label">Adjuster</span>
                                                         <span class="core-value">Smith K.
-                                                            <a href="">700-0000 </a>
+                                                            <a href="">(205) 700-0000 </a>
                                                             <a href="mailto:UnitedGroupInsurance@example.com">UnitedGroupInsurance&#64;example.com</a>
                                                         </span>
                                                     </div>
@@ -240,6 +239,24 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="job-participents">
+                                            <h3>Participents</h3>
+                                            <p-carousel [value]="jobParticipents" [numVisible]="6" [numScroll]="1"
+                                                [responsiveOptions]="responsiveOptions" showNavigators="false"
+                                                showIndicators="false">
+                                                <ng-template let-jobparticipent pTemplate="item">
+                                                    <div class="job-participent-item">
+                                                        <div class="job-participent-item-content">
+                                                            <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" shape="circle"></p-avatar>
+                                                            <h4>{{ jobparticipent.name }}</h4>
+                                                            <h5>{{ jobparticipent.designation }}</h5>
+                                                            <a href="">{{ jobparticipent.email }}</a>
+                                                            <a href="">{{ jobparticipent.phone }}</a>
+                                                        </div>
+                                                    </div>
+                                                </ng-template>
+                                            </p-carousel>
+                                        </div>
                                     </p-scrollPanel>
                                 </div>
                                 <!-- <div>
@@ -258,157 +275,5 @@
         </div>
     </section>
 </main>
-
-<!-- <h3>Getting Started with Grid</h3>
-<div class="grid">
-    <div class="col-2">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold">1</div>
-    </div>
-    <div class="col">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">2</div>
-    </div>
-    <div class="col">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">3</div>
-    </div>
-</div>
-
-<h3>12 Col Grid</h3>
-<div class="grid">
-    <div class="col-4">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">4</div>
-    </div>
-    <div class="col">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">1</div>
-    </div>
-    <div class="col">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">1</div>
-    </div>
-    <div class="col">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">1</div>
-    </div>
-    <div class="col">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">1</div>
-    </div>
-    <div class="col">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">1</div>
-    </div>
-    <div class="col">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">1</div>
-    </div>
-    <div class="col">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">1</div>
-    </div>
-    <div class="col">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">1</div>
-    </div>
-</div>
-
-<div class="grid">
-    <div class="col-2">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">2</div>
-    </div>
-    <div class="col-6">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">6</div>
-    </div>
-    <div class="col-4">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold ">4</div>
-    </div>
-</div>
-
-<h3>Multi Line</h3>
-<div class="grid">
-    <div class="col-6">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold">6</div>
-    </div>
-    <div class="col-6">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold">6</div>
-    </div>
-    <div class="col-6">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold">6</div>
-    </div>
-    <div class="col-6">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold">6</div>
-    </div>
-</div>
-
-<h3>Fixed Col</h3>
-<div class="grid">
-    <div class="col-fixed" style="width:100px">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold">100px</div>
-    </div>
-    <div class="col">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold">auto</div>
-    </div>
-</div>
-
-<h3>Offset</h3>
-<div class="grid">
-    <div class="col-6 col-offset-3">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold">6</div>
-    </div>
-</div>
-<div class="grid">
-    <div class="col-4">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold">4</div>
-    </div>
-    <div class="col-4 col-offset-4">
-        <div class="text-center p-3 border-round-sm bg-primary font-bold">4</div>
-    </div>
-</div>
-
-<h3>Nested Grid</h3>
-<div class="grid nested-grid">
-    <div class="col-8">
-        <div class="grid">
-            <div class="col-6">
-                <div class="text-center p-3 border-round-sm bg-primary font-bold">6</div>
-            </div>
-            <div class="col-6">
-                <div class="text-center p-3 border-round-sm bg-primary font-bold">6</div>
-            </div>
-            <div class="col-12">
-                <div class="text-center p-3 border-round-sm bg-primary font-bold">12</div>
-            </div>
-        </div>
-    </div>
-    <div class="col-4">
-        <div class="text-center p-3 border-round-sm h-full bg-primary font-bold">4</div>
-    </div>
-</div>
-
-<h3>Form Test</h3>
-<div class="formgrid grid">
-    <div class="field col-12 md:col-6">
-        <label for="firstname6">Firstname</label>
-        <input id="firstname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-    </div>
-    <div class="field col-12 md:col-6">
-        <label for="lastname6">Lastname</label>
-        <input id="lastname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-    </div>
-    <div class="field col-12">
-        <label for="address">Address</label>
-        <textarea id="address" type="text" rows="4" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></textarea>
-    </div>
-    <div class="field col-12 md:col-6">
-        <label for="city">City</label>
-        <input id="city" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-    </div>
-    <div class="field col-12 md:col-3">
-        <label for="state">State</label>
-        <select id="state" class="w-full text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round outline-none focus:border-primary" style="appearance: auto">
-            <option>Arizona</option>
-            <option>California</option>
-            <option>Florida</option>
-            <option>Ohio</option>
-            <option>Washington</option>
-        </select>
-    </div>
-    <div class="field col-12 md:col-3">
-        <label for="zip">Zip</label>
-        <input id="zip" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
-    </div>
-</div> -->
-
 
 <router-outlet />

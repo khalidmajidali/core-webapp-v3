@@ -31,7 +31,7 @@ export class AppComponent {
 		];
 	}
 
-	jobstatuses = [
+	jobStatuses = [
 		{
 			id: '1',
 			status: 'Open',
@@ -122,5 +122,17 @@ export class AppComponent {
 			endDate: 'Dec 20, 2023, 5:11:33 PM',
 			currentlyActive: false,
 		},
+	]
+
+	jobParticipents = [
+		{
+			id: '1',
+			name: 'John Doe',
+			designation: 'Queue Manager - Network',
+			email: 'john@example.com',
+			phone: '+22 (844) 287-3199',
+			default: false,
+			avatar: 'abc.jpg',
+		}
 	]
 }
