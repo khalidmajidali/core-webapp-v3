@@ -5,6 +5,7 @@ $appTextColorDark: #3B4758;
 $appTextColorLight: #586a84;
 $appTextColorBlue: #1488F3;
 $appCardBackgroundColor: #ffffff;
+$appCardInnerBackgroundColor: #fafafa;
 $appCardHeaderBackgroundColor: #f9f9f9;
 $appCardBorderRadius: 12px;
 $appFormFieldBackgroundColor: #f2f6fa;
@@ -12,6 +13,7 @@ $appFormFieldBorderRadius: 6px;
 $appFormFieldPlaceholderColor: #7D8FA9;
 $appIconColor: #586a84;
 $appIconColorActive: #1e1e1e;
+$appControlItemBackgroundColor: #f2f2f2;
 $appActiveButtonBackgroundColor: #E5F3FF;
 $appCardBoxShadow: 0px 4px 20px rgba(170, 169, 184, 0.1);
 $appButtonHelpColor: #F21673;
@@ -112,8 +114,12 @@ body {
             display: flex;
             justify-content: flex-end;
             flex-grow: 1;
-        }
 
+            .control-item {
+                
+            }
+            
+        }
         .p-button {
             width: 20px;
             height: 20px;
@@ -122,6 +128,7 @@ body {
             border: none;
             outline: none;
         }
+
 
     }
 
@@ -589,7 +596,9 @@ h4 {
             }
 
             .job-participent-item {
-                background: #fafaii;
+                background: $appCardInnerBackgroundColor;
+                border-radius: $appCardBorderRadius;
+                padding: 150x 10px;
 
                 .job-participent-item-content {
                     
