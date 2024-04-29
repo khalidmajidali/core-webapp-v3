@@ -63,9 +63,55 @@
                     <div class="col-12">
                         <p-card header="Advanced Card" subheader="Card Subheader">
                             <ng-template pTemplate="header">
-                                <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" />
+                                <div class="card-title">
+                                    <h2>Jobs</h2>
+                                </div>
+                                <div class="card-controls">
+                                    <!-- Filter -->
+                                    <span class="control-item">
+                                        <p-button icon="pi pi-filter"
+                                            pTooltip="Filter" tooltipPosition="top"></p-button>
+                                        <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+                                    </span>
+                                    <!-- Sort -->
+                                    <span class="control-item">
+                                        <p-button icon="pi pi-sort-amount-down"
+                                            pTooltip="Sort" tooltipPosition="top"></p-button>
+                                        <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+                                    </span>
+                                    <!-- Search -->
+                                    <span class="control-item">
+                                        <p-button icon="pi pi-search"
+                                            pTooltip="Search" tooltipPosition="top"></p-button>
+                                        <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+                                    </span>
+                                    <!-- Add -->
+                                    <span class="control-item">
+                                        <p-button icon="pi pi-plus"
+                                            pTooltip="Add Job" tooltipPosition="top"></p-button>
+                                        <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+                                    </span>
+                                </div>
                             </ng-template>
-                            <p-scrollPanel [style]="{ width: '100%', height: '200px' }">
+                            <p-scrollPanel [style]="{ width: '100%', height: 'calc(100vh - 605px)' }">
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur
+                                    error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis,
+                                    culpa ratione quam perferendis esse, cupiditate neque
+                                    quas!
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur
+                                    error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis,
+                                    culpa ratione quam perferendis esse, cupiditate neque
+                                    quas!
+                                </p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur
+                                    error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis,
+                                    culpa ratione quam perferendis esse, cupiditate neque
+                                    quas!
+                                </p>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur
                                     error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis,
@@ -240,14 +286,53 @@
                                             </div>
                                         </div>
                                         <div class="job-participants">
-                                            <h3>Participents</h3>
-                                            <p-carousel [value]="jobParticipents" [numVisible]="6" [numScroll]="1"
+                                            <div class="card-header">
+                                                <div class="card-title">
+                                                    <h3>Participents</h3>
+                                                </div>
+                                                <div class="card-controls">
+                                                    <a href="">Add Participent</a>
+                                                    <a href="">View All</a>
+                                                </div>
+                                            </div>
+                                            <p-carousel [value]="jobParticipents" [numVisible]="5" [numScroll]="1"
                                                 [responsiveOptions]="responsiveOptions" showNavigators="false"
                                                 showIndicators="false">
                                                 <ng-template let-jobparticipent pTemplate="item">
                                                     <div class="job-participent-item">
                                                         <div class="job-participent-item-content">
-                                                            <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" shape="circle"></p-avatar>
+                                                            <div class="inner-card-header">
+                                                                <div class="inner-card-title">
+                                                                    <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" shape="circle"></p-avatar>
+                                                                </div>
+                                                                <div class="inner-card-controls">
+                                                                    <!-- Make Default -->
+                                                                    <span class="control-item">
+                                                                        <p-button icon="pi pi-check-circle" [styleClass]="jobparticipent.default ? 'green' : '' "
+                                                                            [pTooltip]="jobparticipent.default ? 'Remove Default' : 'Make Default' " tooltipPosition="top"></p-button>
+                                                                        <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+                                                                    </span>
+                                                                    <!-- Chat -->
+                                                                    <span class="control-item">
+                                                                        <p-button icon="pi pi-comments"
+                                                                            pTooltip="Chat" tooltipPosition="top"></p-button>
+                                                                        <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+                                                                    </span>
+                                                                    <!-- Forward -->
+                                                                    <span class="control-item">
+                                                                        <p-button icon="pi pi-directions"
+                                                                            pTooltip="Forward" tooltipPosition="top"></p-button>
+                                                                        <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+                                                                    </span>
+                                                                    <!-- Delete -->
+                                                                    <span class="control-item">
+                                                                        <p-button icon="pi pi-trash" [styleClass]="'red'"
+                                                                            pTooltip="Delete" tooltipPosition="top"></p-button>
+                                                                        <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+
                                                             <h4>{{ jobparticipent.name }}</h4>
                                                             <h5>{{ jobparticipent.designation }}</h5>
                                                             <a href="">{{ jobparticipent.email }}</a>
@@ -256,6 +341,22 @@
                                                     </div>
                                                 </ng-template>
                                             </p-carousel>
+                                        </div>
+                                        <div class="job-attachments">
+                                            <div class="card-header">
+                                                <div class="card-title">
+                                                    <h3>Attachments (Images &amp; Doc)</h3>
+                                                </div>
+                                                <div class="card-controls">
+                                                    <a href="">View All</a>
+                                                </div>
+                                            </div>
+                                            <div class="job-attachments-content">
+                                                <a href=""><img src="../assets/images/icon-doc.svg" alt=""> <span>corevalue.pdf</span></a>
+                                                <a href=""><img src="../assets/images/icon-pdf.svg" alt=""> <span>work-details.doc</span></a>
+                                                <a href=""><img src="../assets/images/attachment-house.jpg" alt=""> <span>house.jpg</span></a>
+                                                <a href="" class="add-attachment"><i class="pi pi-plus"></i></a>
+                                            </div>
                                         </div>
                                     </p-scrollPanel>
                                 </div>

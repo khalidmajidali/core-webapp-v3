@@ -590,23 +590,182 @@ h4 {
         }
 
         .job-participants {
-
-            h3 {
-                margin-bottom: 20px;
-            }
+            margin-bottom: 40px;
 
             .job-participent-item {
-                background: $appCardInnerBackgroundColor;
-                border-radius: $appCardBorderRadius;
-                padding: 150x 10px;
-
+                margin-right: 15px;
+                padding: 0;
+                
                 .job-participent-item-content {
+                    background: $appCardInnerBackgroundColor;
+                    border-radius: $appCardBorderRadius;
+                    padding: 15px 10px;
+
+                    .p-avatar {
+                        margin-bottom: 12px;;
+                    }
                     
+                    h4 {
+                        margin: 0;
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+
+                    h5 {
+                        margin: 0 0 12px;
+                        font-size: 14px;
+                        color: $appTextColorLight;
+                    }
+
+                    a {
+                        margin: 0 0 5px 0;
+                        font-size: 14px;
+                        font-weight: 600;
+                        color: $appTextColorBlue;
+                        text-decoration: none;
+                        display: block;
+
+                        &:hover {
+                            color: $appBrandColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .job-attachments {
+        margin-bottom: 40px;
+
+        .job-attachments-content {
+            display: flex;
+            
+            a {
+                margin-right: 20px;
+                font-size: 14px;
+                font-weight: 400;
+                text-align: center;
+                text-decoration: none;
+                color: $appTextColorLight;
+
+                img {
+                    margin-bottom: 10px;
+                    border-radius: 12px;
+                }
+                
+                span {
+                    display: block;
+                }
+
+                &.add-attachment {
+                    width: 140px;
+                    height: 140px;
+                    border: 1px solid #e4e4e4;
+                    border-radius: 12px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    
+                }
+
+                &:hover {
+
+                    span {
+                        color: $appTextColorDark;
+                    }
+
+                    &.add-attachment {
+                        border-color: $appTextColorDark;
+
+                        i.pi {
+                            color: $appTextColorDark;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .job-participants, .job-attachments, .job-knowledge-base, .job-notes {
+
+        .card-header {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            
+            .card-title {
+                
+                h3 {
+                    margin-bottom: 20px;
                 }
             }
 
+            .card-controls {
+                
+                a {
+                    margin-left: 20px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: $appTextColorBlue;
+                    text-decoration: none;
+
+                    &:hover {
+                        color: $appBrandColor;
+                    }
+                }
+            }
         }
     }
+
+    .inner-card-header {
+        display: flex;
+
+        .inner-card-title {
+            display: flex;
+            flex-direction: row;
+        }
+    
+        .inner-card-controls {
+            height: 20px;
+            display: flex;
+            justify-content: flex-end;
+            flex-grow: 1;
+    
+            .control-item {
+                
+                .p-button {
+                    width: 20px;
+                    height: 20px;
+                    margin-left: 10px;
+                    background: $appControlItemBackgroundColor;
+                    color: $appIconColor;
+                    border-radius: 2px;
+                    border: none;
+                    outline: none;
+
+                    .pi {
+                        font-size: 14px;
+
+                    }
+                    
+                    &.red {
+                        color: $appBrandColor;
+                    }
+
+                    &.green {
+                        color: $appComplete;
+                    }
+
+                    &:hover {
+                        color: $appTextColorDark;
+                    }
+                }
+            }
+        }
+    }
+
 
     .icon {
         color: $appIconColor;
