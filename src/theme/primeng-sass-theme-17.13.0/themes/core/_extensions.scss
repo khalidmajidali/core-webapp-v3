@@ -299,13 +299,16 @@ h4 {
             margin-left: 20px;
             vertical-align: top;
             position: relative;
-
+            
             i:first-of-type {
+                top: 21px;
                 left: 10px;
+                font-size: 14px;
                 color: $appIconColor;
             }
             
             .p-inputtext {
+                padding-right: 40px;
                 padding-left: 36px;
                 background: $appFormFieldBackgroundColor;
                 border: none;
@@ -318,6 +321,7 @@ h4 {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                cursor: pointer;
                 position: absolute;
                 right: 10px;
                 top: 0;
@@ -687,6 +691,41 @@ h4 {
         }
     }
 
+    .job-knowledge-base {
+        margin-bottom: 40px;
+
+        .job-knowledge-base-content {
+            display: flex;
+            
+            a {
+                margin-right: 20px;
+                font-size: 12px;
+                font-weight: 400;
+                text-align: center;
+                text-decoration: none;
+                color: $appTextColorBlue;
+                display: flex;
+                align-items: center;
+
+                img {
+                    height: 32px;
+                    margin-right: 6px;
+                }
+
+                &:hover {
+                    color: $appTextColorLight;
+                }
+            }
+        }
+    }
+
+    .job-notes {
+
+        .job-note-content {
+
+        }
+    }
+
     .job-participants, .job-attachments, .job-knowledge-base, .job-notes {
 
         .card-header {
@@ -725,6 +764,11 @@ h4 {
         .inner-card-title {
             display: flex;
             flex-direction: row;
+
+            .p-avatar {
+                background-color: $appFormFieldPlaceholderColor;
+                color: $appCardBackgroundColor;
+            }
         }
     
         .inner-card-controls {
@@ -756,6 +800,10 @@ h4 {
 
                     &.green {
                         color: $appComplete;
+                    }
+
+                    &.blue {
+                        color: $appTextColorBlue;
                     }
 
                     &:hover {

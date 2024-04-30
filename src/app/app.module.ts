@@ -19,7 +19,7 @@ import { LeftNavComponent } from './left-nav/left-nav.component';
 
 @NgModule({
 	declarations: [AppComponent, TopNavComponent, LeftNavComponent],
-	imports: [BrowserModule, BrowserAnimationsModule, ButtonModule, CardModule, CarouselModule, AppRoutingModule, AvatarModule, AvatarGroupModule, MenuModule, ToastModule, TooltipModule, ScrollPanelModule ],
+	imports: [ BrowserModule, BrowserAnimationsModule, ButtonModule, CardModule, CarouselModule, AppRoutingModule, AvatarModule, AvatarGroupModule, MenuModule, ToastModule, TooltipModule, ScrollPanelModule ],
 	providers: [],
 	bootstrap: [AppComponent],
 })

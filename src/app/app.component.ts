@@ -124,6 +124,10 @@ export class AppComponent {
 		},
 	]
 
+	getShortName(fullName) { 
+		return fullName.split(' ').map(n => n[0]).join('');
+	}
+
 	jobParticipents = [
 		{
 			id: '1',
@@ -132,7 +136,8 @@ export class AppComponent {
 			email: 'john@example.com',
 			phone: '+22 (844) 287-3199',
 			default: true,
-			avatar: 'abc.jpg',
+			tracking: false,
+			avatar: 'https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png',
 		},
 		{
 			id: '2',
@@ -141,7 +146,8 @@ export class AppComponent {
 			email: 'john@example.com',
 			phone: '+22 (844) 287-3199',
 			default: false,
-			avatar: 'abc.jpg',
+			tracking: true,
+			avatar: '',
 		},
 		{
 			id: '3',
@@ -150,7 +156,8 @@ export class AppComponent {
 			email: 'john@example.com',
 			phone: '+22 (844) 287-3199',
 			default: false,
-			avatar: 'abc.jpg',
+			tracking: false,
+			avatar: '',
 		},
 		{
 			id: '4',
@@ -159,7 +166,8 @@ export class AppComponent {
 			email: 'john@example.com',
 			phone: '+22 (844) 287-3199',
 			default: false,
-			avatar: 'abc.jpg',
+			tracking: false,
+			avatar: '',
 		},
 		{
 			id: '5',
@@ -168,7 +176,8 @@ export class AppComponent {
 			email: 'john@example.com',
 			phone: '+22 (844) 287-3199',
 			default: false,
-			avatar: 'abc.jpg',
+			tracking: false,
+			avatar: '',
 		},
 		{
 			id: '6',
@@ -177,7 +186,8 @@ export class AppComponent {
 			email: 'john@example.com',
 			phone: '+22 (844) 287-3199',
 			default: false,
-			avatar: 'abc.jpg',
+			tracking: false,
+			avatar: '',
 		}
 	]
 }

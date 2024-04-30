@@ -61,7 +61,7 @@
                         </p-card>
                     </div>
                     <div class="col-12">
-                        <p-card header="Advanced Card" subheader="Card Subheader">
+                        <p-card>
                             <ng-template pTemplate="header">
                                 <div class="card-title">
                                     <h2>Jobs</h2>
@@ -93,7 +93,7 @@
                                     </span>
                                 </div>
                             </ng-template>
-                            <p-scrollPanel [style]="{ width: '100%', height: 'calc(100vh - 605px)' }">
+                            <p-scrollPanel [style]="{ width: '100%', height: 'calc(100vh - 543px)' }">
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur
                                     error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis,
@@ -303,7 +303,7 @@
                                                         <div class="job-participent-item-content">
                                                             <div class="inner-card-header">
                                                                 <div class="inner-card-title">
-                                                                    <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" shape="circle"></p-avatar>
+                                                                    <p-avatar [label]="jobparticipent.avatar == '' ? getShortName(jobparticipent.name) : ''" [image]="jobparticipent.avatar !== '' ? jobparticipent.avatar : ''" shape="circle"></p-avatar>
                                                                 </div>
                                                                 <div class="inner-card-controls">
                                                                     <!-- Make Default -->
@@ -318,10 +318,10 @@
                                                                             pTooltip="Chat" tooltipPosition="top"></p-button>
                                                                         <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
                                                                     </span>
-                                                                    <!-- Forward -->
+                                                                    <!-- Track -->
                                                                     <span class="control-item">
-                                                                        <p-button icon="pi pi-directions"
-                                                                            pTooltip="Forward" tooltipPosition="top"></p-button>
+                                                                        <p-button icon="pi pi-directions" [styleClass]="jobparticipent.tracking ? 'blue' : '' "
+                                                                        [pTooltip]="jobparticipent.tracking ? 'Stop Tracking' : 'Start Tracking' " tooltipPosition="top"></p-button>
                                                                         <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
                                                                     </span>
                                                                     <!-- Delete -->
@@ -356,6 +356,39 @@
                                                 <a href=""><img src="../assets/images/icon-pdf.svg" alt=""> <span>work-details.doc</span></a>
                                                 <a href=""><img src="../assets/images/attachment-house.jpg" alt=""> <span>house.jpg</span></a>
                                                 <a href="" class="add-attachment"><i class="pi pi-plus"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="job-knowledge-base">
+                                            <div class="card-header">
+                                                <div class="card-title">
+                                                    <h3>Knowledge Base</h3>
+                                                </div>
+                                                <div class="card-controls">
+                                                    <a href="">View All</a>
+                                                </div>
+                                            </div>
+                                            <div class="job-knowledge-base-content">
+                                                <a href=""><img src="../assets/images/icon-pdf.svg" alt=""> <span>work-details.doc</span></a>
+                                                <a href=""><img src="../assets/images/icon-pdf.svg" alt=""> <span>house.jpg</span></a>
+                                            </div>
+                                        </div>
+                                        <div class="job-notes">
+                                            <div class="card-header">
+                                                <div class="card-title">
+                                                    <h3>Notes</h3>
+                                                    <span class="p-input-icon-left">
+                                                        <i class="pi pi-search"></i>
+                                                        <input type="text" pInputText class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched" placeholder="Search here..." />
+                                                    </span>
+                                                </div>
+                                                <div class="card-controls">
+                                                    <a href="">Add Note</a>
+                                                    <a href="">View All</a>
+                                                </div>
+                                            </div>
+                                            <div class="job-note-content">
+                                                <a href=""><img src="../assets/images/icon-pdf.svg" alt=""> <span>work-details.doc</span></a>
+                                                <a href=""><img src="../assets/images/icon-pdf.svg" alt=""> <span>house.jpg</span></a>
                                             </div>
                                         </div>
                                     </p-scrollPanel>
