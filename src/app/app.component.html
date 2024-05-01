@@ -386,9 +386,37 @@
                                                     <a href="">View All</a>
                                                 </div>
                                             </div>
-                                            <div class="job-note-content">
-                                                <a href=""><img src="../assets/images/icon-pdf.svg" alt=""> <span>work-details.doc</span></a>
-                                                <a href=""><img src="../assets/images/icon-pdf.svg" alt=""> <span>house.jpg</span></a>
+                                            <div class="job-notes-content">
+                                                <div class="job-note-item">
+                                                    <div class="job-note-header">
+                                                        <div class="job-note-title">
+                                                            <h4>Debbie Paulsen</h4>
+                                                        </div>
+                                                        <div class="job-note-meta">
+                                                            <span class="job-note-status"><p-tag value="Review Required" severity="warning" [rounded]="true"></p-tag></span>
+                                                            <span class="job-note-date">Jan 30, 2024, 10:12:51 PM</span>
+                                                        </div>
+                                                    </div>
+                                                    <p>The job has been progressing very Slow</p>
+                                                    <div class="job-note-controls">
+                                                        <div>
+                                                            <a href="">Reply</a>
+                                                            <a href="">Edit</a>
+                                                            <a href="">History</a>
+                                                            <a href="" class="red">Delete</a>
+                                                        </div>
+                                                        <div>
+                                                            <p-button label="Secondary" severity="secondary"></p-button>
+                                                            <p-avatar label="NE" shape="circle"></p-avatar>
+                                                            <p-avatar label="CS" shape="circle"></p-avatar>
+                                                            <p-avatar label="PR" shape="circle"></p-avatar>
+                                                            <p-avatar label="CL" shape="circle"></p-avatar>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="jop-notes-pagination">
+                                                    <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="120" [rowsPerPageOptions]="[10, 20, 30]" [showFirstLastIcon]="false"></p-paginator>
+                                                </div>
                                             </div>
                                         </div>
                                     </p-scrollPanel>
