@@ -36,9 +36,12 @@ export class AppComponent {
 		];
 	}
 
-	first: number = 0;
+	getShortName(fullName) { 
+		return fullName.split(' ').map(n => n[0]).join('');
+	}
 
-    rows: number = 10;
+	first: number = 0;
+    rows: number = 3;
 
     onPageChange(event: PageEvent) {
         this.first = event.first;
@@ -138,8 +141,32 @@ export class AppComponent {
 		},
 	]
 
-	getShortName(fullName) { 
-		return fullName.split(' ').map(n => n[0]).join('');
+	jobDetails = {
+		integrationType: 'CV',
+		serviceExpert: 'Wakeel Ahmad',
+		qaReviewer: 'N/A',
+		jobType: 'Fire',
+		jobDescription: "Need to have restore fire damage to the basement area, lorem ipsum dolores sit amet bla blah lorem. Ipsum sit emet dolores lorem...",
+		program: 'Standard Mitigation',
+		mainContact: 'Edward Barney',
+		mainContactEmail: 'edwardbarney@gmail.com',
+		mainContactPhone: '(202) 682-3745',
+		customer: 'Edward Barney',
+		customerEmail: 'edwardbarney@gmail.com',
+		customerPhone: '(202) 682-3745',
+		customerAddress: 'Street 8th, Suit#101, Birmingham, AL, 35244, United States',
+		client: 'United Group insurance',
+		adjuster: 'Smith K.',
+		adjusterEmail: 'unitedgroupinsurance@example.com',
+		adjusterPhone: '(205) 700-0000',
+		provider: 'Mr. Restore',
+		initialEstimate: '23230',
+		finalEstimate: '35523',
+		jobInvoiceTotal: '35000',
+		jobReceivedAmount: '20000',
+		jobReferralFee: '200',
+		jobPaidAmount: '10000',
+		jobBalanceAmount: '24800',
 	}
 
 	jobParticipents = [
@@ -203,5 +230,95 @@ export class AppComponent {
 			tracking: false,
 			avatar: '',
 		}
+	]
+
+	jobAttachments = [
+		{
+			id: '1',
+			fileName: 'corevalue.pdf',
+			fileType: 'pdf',
+			fileUrl: '../assets/documents/corevalue.pdf'
+		},
+		{
+			id: '2',
+			fileName: 'work-details.doc',
+			fileType: 'doc',
+			fileUrl: '../assets/documents/work-details.doc'
+		},
+		{
+			id: '3',
+			fileName: 'house.jpg',
+			fileType: 'jpg',
+			fileUrl: '../assets/images/attachment-house.jpg'
+		}
+	]
+
+	jobNotes = [
+		{
+			id: '1',
+			name: 'Debbie Paulsen',
+			note: 'The job has been progressing very slowly',
+			date: 'Jan 30, 2024, 10:12:51 PM',
+			reviewRequired: true,
+			reviewRequiredBy: 'Josh Peck',
+			reviewed: false,
+			reviewedBy:'',
+			visibleTo: ['NE', 'CS'],
+		},
+		{
+			id: '2',
+			name: 'Josh Peck',
+			note: 'A "restoration job" is a significant activity commonly employed in various contexts. It involves the process of repairing or refurbishing something, be it a historical building or other artifacts, to enhance its condition or utility. Restoration work is typically undertaken to bring things back to their original state, incorporating efforts such as repairs, maintenance, or reconstruction. The aim is to return items to their former glory, preserving their historical or cultural significance.',
+			date: 'Jan 30, 2024, 10:12:51 PM',
+			reviewRequired: false,
+			reviewRequiredBy: '',
+			reviewed: false,
+			reviewedBy:'',
+			visibleTo: ['NE', 'CS', 'PR', 'CL'],
+		},
+		{
+			id: '2',
+			name: 'Debbie Paulsen',
+			note: 'Restoration work is typically undertaken to bring things back to their original state.',
+			date: 'Jan 30, 2024, 10:12:51 PM',
+			reviewRequired: true,
+			reviewRequiredBy: '',
+			reviewed: false,
+			reviewedBy:'',
+			visibleTo: ['CS', 'PR', 'CL'],
+		},
+		{
+			id: '4',
+			name: 'Debbie Paulsen',
+			note: 'The job has been progressing very slowly',
+			date: 'Jan 30, 2024, 10:12:51 PM',
+			reviewRequired: true,
+			reviewRequiredBy: 'Josh Peck',
+			reviewed: true,
+			reviewedBy:'',
+			visibleTo: ['PR', 'CL'],
+		},
+		{
+			id: '5',
+			name: 'Josh Peck',
+			note: 'A "restoration job" is a significant activity commonly employed in various contexts. It involves the process of repairing or refurbishing something, be it a historical building or other artifacts, to enhance its condition or utility. Restoration work is typically undertaken to bring things back to their original state, incorporating efforts such as repairs, maintenance, or reconstruction. The aim is to return items to their former glory, preserving their historical or cultural significance.',
+			date: 'Jan 30, 2024, 10:12:51 PM',
+			reviewRequired: false,
+			reviewRequiredBy: '',
+			reviewed: false,
+			reviewedBy:'',
+			visibleTo: ['NE', 'CS', 'PR', 'CL'],
+		},
+		{
+			id: '6',
+			name: 'Debbie Paulsen',
+			note: 'Restoration work is typically undertaken to bring things back to their original state.',
+			date: 'Jan 30, 2024, 10:12:51 PM',
+			reviewRequired: true,
+			reviewRequiredBy: '',
+			reviewed: false,
+			reviewedBy:'',
+			visibleTo: ['NE', 'CS', 'PR', 'CL'],
+		},
 	]
 }
