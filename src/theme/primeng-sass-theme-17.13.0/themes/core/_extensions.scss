@@ -74,6 +74,7 @@ body {
 .p-card {
     border-radius: $appCardBorderRadius;
     box-shadow: none;
+    overflow: hidden;
 
     .p-card-header {
         padding: 15px 30px;
@@ -444,7 +445,7 @@ h4 {
                     }
                 }
 
-                &:hover, &.active, &:focus {
+                &.active {
                     background: $appTextColorLight;
                     
                     .title {
@@ -456,6 +457,21 @@ h4 {
                         .p-button {
                             color: $white;
                         }
+                    }
+                }
+
+                &:not(.active):hover, &:not(.active):focus {
+                    background: $appFormFieldBackgroundColor;
+                }
+
+                .p-tag {
+                    padding: 8px 10px;
+
+                    .p-tag-value {
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 1;
+                        color: #fff;
                     }
                 }
             }
@@ -802,15 +818,7 @@ h4 {
                                     line-height: 1;
                                     color: #fff;
                                 }
-                            }
-    
-                            .p-element[ng-reflect-severity="reviewed"] {
-    
-                                .p-tag {
-                                    background-color: $appTextColorLight;
-                                }
-                            }
-                            
+                            }                            
                         }
     
                         .job-note-date {
@@ -1090,7 +1098,31 @@ h4 {
                 .p-scrollpanel-content {
                     padding: 0;
                 }
+            }
+        }
 
+        &[ng-reflect-severity="reviewed"] {
+    
+            .p-tag {
+                background-color: $appTextColorLight;
+            }
+        }
+        &[ng-reflect-severity="assigned"] {
+    
+            .p-tag {
+                background-color: $appComplete;
+            }
+        }
+        &[ng-reflect-severity="rejected"] {
+    
+            .p-tag {
+                background-color: $appWorning;
+            }
+        }
+        &[ng-reflect-severity="open"] {
+    
+            .p-tag {
+                background-color: $appTextColorBlue;
             }
         }
     }
