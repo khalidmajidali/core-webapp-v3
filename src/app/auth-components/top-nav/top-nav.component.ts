@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MenuItem, MessageService } from 'primeng/api';
+import { MenuService } from '../../common-services/menu.service';
 
 @Component({
 	selector: 'app-top-nav',
@@ -10,8 +11,9 @@ import { MenuItem, MessageService } from 'primeng/api';
 export class TopNavComponent implements OnInit {
 	items: MenuItem[] | undefined;
 
-	constructor(private messageService: MessageService) { }
-
+	constructor() { }
+	messageService = inject(MessageService);
+	menuService = inject(MenuService);
 	ngOnInit() {
 		this.items = [
 			{
@@ -58,4 +60,9 @@ export class TopNavComponent implements OnInit {
 	delete() {
 		this.messageService.add({ severity: 'warn', summary: 'Delete', detail: 'Data Deleted' });
 	}
+
+	menuToggle() {
+		this.menuService.menuToggle();
+	}
+
 }

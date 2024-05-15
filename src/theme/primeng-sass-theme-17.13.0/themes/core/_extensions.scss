@@ -32,6 +32,11 @@ $white: #ffffff;
 }
 
 /* Customizations to the designer theme should be defined here */
+
+html {
+    font-size: 14px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -59,16 +64,35 @@ body {
 
 
 // PrimeNg Overrides
-.flex {
-    display: flex;
 
-    &.justify-end {
-        justify-content: flex-end;
-    }
+p-button {
+    display: inline-block;
 }
+.p-button {
+    border-radius: $appFormFieldBorderRadius;
 
-.mt-10 {
-    margin-top: 10px;
+    &.p-button-icon-only {
+        background: transparent;
+        border: none;
+        font-size: 16px;
+        color: $appIconColor;
+
+        &.red {
+            color: $appBrandColor;
+        }
+    
+        &.green {
+            color: $appComplete;
+        }
+    
+        &.blue {
+            color: $appTextColorBlue;
+        }
+        
+        &:hover {
+            color: $appIconColorActive;
+        }
+    }
 }
 
 .p-card {
@@ -77,7 +101,8 @@ body {
     overflow: hidden;
 
     .p-card-header {
-        padding: 15px 30px;
+        height: 54px;
+        padding: 10px 20px 10px 30px;
         background: $appCardHeaderBackgroundColor;
         border-top-right-radius: $appCardBorderRadius;
         border-top-left-radius: $appCardBorderRadius;
@@ -85,22 +110,22 @@ body {
         display: flex;
         justify-content: space-between;
 
-        .icon, .pi {
-            color: $appIconColor;
-            display: inline-block;
-    
-            &:hover, &:focus, &:active {
-                color: $appIconColorActive;
-            }
-        }
+        .card-title, .card-controls {
 
-        & > div {
-            flex-grow: 1;
+            .p-button {
+
+                &.p-button-icon-only {
+                    width: 24px;
+                    height: 24px;
+                    
+                }
+            }
         }
 
         .card-title {
             display: flex;
             flex-direction: row;
+            align-items: center;
 
             h2 {
                 font-weight: 500;
@@ -112,26 +137,15 @@ body {
         }
 
         .card-controls {
-            height: 20px;
             display: flex;
             justify-content: flex-end;
             flex-grow: 1;
+            align-items: center;
 
             .control-item {
-                
+                margin-left: 5px;
             }
-            
         }
-        .p-button {
-            width: 20px;
-            height: 20px;
-            margin-left: 10px;
-            background: transparent;
-            border: none;
-            outline: none;
-        }
-
-
     }
 
     .card-header-tabs {
@@ -177,24 +191,6 @@ body {
     height: 40px;
 }
 
-.p-button {
-    
-    .p-label {
-        font-size: 18px;
-        font-weight: 500;
-    }
-    
-    &.p-button-help {
-        padding: 12px 12px;
-        color: $appButtonHelpColor;
-        border-radius: $appCardBorderRadius;
-
-        &:hover {
-            background: rgba($appButtonHelpColor, 0.04);
-        }
-    }
-}
-
 .p-tooltip {
     
     .p-tooltip-text {
@@ -202,6 +198,9 @@ body {
         font-size: 12px;
     }
 }
+
+
+
 
 // CORE Custom Styles
 
@@ -227,34 +226,20 @@ h4 {
     padding: 15px;
 
     #left-nav, #top-nav {
+        background: $appCardBackgroundColor;
+        border-radius: $appCardBorderRadius;
+        box-shadow: $appCardBoxShadow;
+        display: flex;
+        position: fixed;
+        top: 15px;
         z-index: 2;
-
-        .p-button {
-            width: 48px;
-            height: 48px;
-            background-color: transparent;
-            border-radius: $appFormFieldBorderRadius;
-            border-color: transparent;
-            color: $appIconColor;
-        
-            &:hover, &:active, &:focus, &.active {
-                background-color: $appActiveButtonBackgroundColor;
-                color: $appIconColorActive;
-            }
-        }
     }
 
     #left-nav {
         width: 86px;
         height: calc(100vh - 30px);
-        background: $appCardBackgroundColor;
-        border-radius: $appCardBorderRadius;
-        padding: 20px 19px;
-        box-shadow: $appCardBoxShadow;
-        display: flex;
+        padding: 20px 0 20px 19px;
         flex-direction: column;
-        position: fixed;
-        top: 15px;
         left: 15px;
 
         #branding {
@@ -276,31 +261,94 @@ h4 {
 
             li {
                 margin-bottom: 10px;
+                display: flex;
+                flex-direction: column;
+
+                a {
+                    width: 48px;
+                    height: 48px;
+                    padding: 14px;
+                    background-color: transparent;
+                    border-radius: $appFormFieldBorderRadius;
+                    text-decoration: none;
+                    color: $appIconColor;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    overflow: hidden;
+
+                    i {
+                        width: 20px;
+                        height: 20px;
+                        font-size: 20px;
+                        color: $appIconColor;
+                        display: inline-block;
+
+                        svg {
+                            fill: $appIconColor;
+                        }
+                    }
+
+                    span {
+                        margin-left: 16px;
+                        font-size: 14px;
+                        font-weight: 400;
+                    }
+
+                    &:hover, &:active, &:focus, &.active {
+                        background-color: $appActiveButtonBackgroundColor;
+                        color: $appIconColorActive;
+                        
+                        i {
+                            color: $appIconColorActive;
+                        }
+                    }
+
+                    & + // Sub Menu Items
+                    ul {
+                        display: none;
+    
+                        li {
+    
+                            a {
+                                background-color: transparent;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 
     #top-nav {
-        width: calc(100vw - 131px);
+        width: calc(100% - 131px);
         height: 80px;
-        margin: 0 0 0 101px;
         padding: 20px 24px;
-        background: $appCardBackgroundColor;
-        border-radius: $appCardBorderRadius;
-        box-shadow: $appCardBoxShadow;
-        position: fixed;
-        z-index: 1001;
-
+        right: 15px;
+        
         .p-button {
             width: 40px;
             height: 40px;
+            padding: 0;
+            background: transparent;
+            border: none;
+            color: $appIconColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover, &:active, &:focus, &.active {
+                background-color: $appActiveButtonBackgroundColor;
+                color: $appIconColorActive;
+            }
         }
 
         .p-input-icon-left {
-            width: calc(100% - 60px);
+            // width: calc(100% - 60px);
             margin-left: 20px;
             vertical-align: top;
             position: relative;
+            flex-grow: 1;
             
             i:first-of-type {
                 top: 21px;
@@ -343,8 +391,9 @@ h4 {
             }
         }
 
-        .top-nav-controls {
+        .controls {
             height: 40px;
+            margin-left: 14px;
             display: flex;
             flex-direction: row;
             align-items: top;
@@ -372,11 +421,9 @@ h4 {
     }
 
     #main-content {
-        width: calc(100vw - 130px);
         max-height: calc(100vh - 105px);
         margin: 90px 0 0 101px;
         padding: 0 1px 7px 0;
-        display: inline-block;
 
         h1 {
             margin: 24px 0;
@@ -421,11 +468,17 @@ h4 {
                 .title {
                     display: flex;
                     flex-direction: column;
-                    font-size: 14px;
-                    color: $appTextColorLight;
+                    
+                    a {
+                        display: flex;
+                        flex-direction: column;
+                        font-size: 14px;
+                        color: $appTextColorLight;
+                        text-decoration: none;
 
-                    .job-type {
-                        font-weight: 500;
+                        .job-type {
+                            font-weight: 500;
+                        }
                     }
                 }
 
@@ -433,30 +486,22 @@ h4 {
                     display: flex;
                     align-items: center;
 
-                    .p-button {
-                        width: 20px;
-                        height: 20px;
-                        margin-left: 10px;
-                        background: transparent;
-                        color: #586a84;
-                        border-radius: 2px;
-                        border: none;
-                        outline: none;
-                    }
+                    
                 }
 
                 &.active {
                     background: $appTextColorLight;
                     
                     .title {
-                        color: $white;
+
+                        a {
+                            color: $white;
+                        }
                     }
 
                     .controls {
 
-                        .p-button {
-                            color: $white;
-                        }
+                        
                     }
                 }
 
@@ -465,12 +510,14 @@ h4 {
                 }
 
                 .p-tag {
+                    min-width: 90px;
                     padding: 8px 10px;
 
                     .p-tag-value {
                         font-size: 12px;
                         font-weight: 400;
                         line-height: 1;
+                        text-transform: capitalize;
                         color: #fff;
                     }
                 }
@@ -676,7 +723,7 @@ h4 {
                 .job-participent-item-content {
                     background: $appCardInnerBackgroundColor;
                     border-radius: $appCardBorderRadius;
-                    padding: 15px 10px;
+                    padding: 15px 18px;
 
                     .p-avatar {
                         margin-bottom: 12px;;
@@ -859,17 +906,7 @@ h4 {
                             }
                         }
     
-                        .p-button {
-                            margin-right: 12px;
-                            padding: 11px 23px;
-                            border-radius: $appFormFieldBorderRadius;
-                            
-                            .p-button-label {
-                                font-size: 12px;
-                                font-weight: 400;
-                                line-height: 12px;
-                            }
-                        }
+                        
     
                         .p-avatar {
                             width: 36px;
@@ -887,6 +924,38 @@ h4 {
                 }
     
             }
+        }
+    }
+
+    &.open {
+
+        #left-nav {
+            width: 200px;
+
+            ul {
+
+                li {
+
+                    a {
+                        width: 162px;
+                        padding-right: 10px;
+
+                        span {
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        #top-nav {
+            width: calc(100% - 245px);
+
+        }
+
+        #main-content {
+            margin: 90px 0 0 215px;
         }
     }
 
@@ -955,6 +1024,9 @@ h4 {
             flex-direction: row;
 
             .p-avatar {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 0;
                 background-color: $appFormFieldPlaceholderColor;
                 color: $appCardBackgroundColor;
             }
@@ -967,36 +1039,14 @@ h4 {
             flex-grow: 1;
     
             .control-item {
-                
+                margin-left: 5px;
+
                 .p-button {
-                    width: 20px;
-                    height: 20px;
-                    margin-left: 10px;
-                    background: $appControlItemBackgroundColor;
-                    color: $appIconColor;
-                    border-radius: 2px;
-                    border: none;
-                    outline: none;
 
-                    .pi {
-                        font-size: 14px;
-
-                    }
-                    
-                    &.red {
-                        color: $appBrandColor;
-                    }
-
-                    &.green {
-                        color: $appComplete;
-                    }
-
-                    &.blue {
-                        color: $appTextColorBlue;
-                    }
-
-                    &:hover {
-                        color: $appTextColorDark;
+                    &.p-button-icon-only {
+                        width: 32px;
+                        height: 32px;
+                        background: $appControlItemBackgroundColor;
                     }
                 }
             }
@@ -1011,6 +1061,12 @@ h4 {
             color: $appIconColorActive;
         }
 
+        &.icon-dashboard {
+            width: 16px;
+            height: 16px;
+            background: url(../../../../assets/images/icon-dashboard.svg) no-repeat center center / 16px 16px;
+        }
+        
         &.icon-menu {
             width: 18px;
             height: 12px;
@@ -1095,9 +1151,9 @@ h4 {
             .p-card-body {
                 padding: 0;
 
-                .p-scrollpanel-content {
-                    padding: 0;
-                }
+                // .p-scrollpanel-content {
+                //     padding: 0;
+                // }
             }
         }
 
@@ -1126,5 +1182,7 @@ h4 {
             }
         }
     }
+
+    
 }
 

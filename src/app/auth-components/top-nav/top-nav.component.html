@@ -1,0 +1,49 @@
+<nav id="top-nav">    
+    <!-- Left Menu Toggle -->
+    <p-button label="" class="p-button-secondary" (click)="menuToggle()"><span class="material-icons-round">menu</span></p-button>
+    
+    <!-- Search Bar with Quinn -->
+    <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched" placeholder="Search here..." />
+        <span class="quinn-container">
+            <i class="icon icon-quinn"></i>
+        </span>
+    </span>
+
+    <!-- Top Nav Controls -->
+    <div class="controls">
+        <!-- Hub -->
+        <span class="control-item">
+            <p-button (click)="menu.toggle($event)">
+                <span class="material-icons-round">apps</span>
+            </p-button>
+            <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+        </span>
+
+        <!-- App Notifications -->
+        <span class="control-item">
+            <p-button>
+                <span class="material-icons-round">notifications</span>
+            </p-button>
+            <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+            <span class="notification-available"></span>
+        </span>
+
+        <!-- App Settings -->
+        <span class="control-item">
+            <p-button>
+                <span class="material-icons-round">settings</span>
+            </p-button>
+            <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+        </span>
+
+        <!-- Profile Options -->
+        <span class="control-item">
+            <p-avatar (click)="menu.toggle($event)" image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" shape="circle"></p-avatar>
+            <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+        </span>
+    </div>
+    <!-- Message Service Toast -->
+    <p-toast></p-toast>
+</nav>

@@ -1,0 +1,14 @@
+<main id="main" [ngClass]="this.menuService.menuState ? 'open' : ''">
+    <!-- Left Nav -->
+    <app-left-nav></app-left-nav>
+
+    <!-- Top Nav -->
+    <app-top-nav></app-top-nav>
+
+    <!-- Min Content -->
+    <section id="main-content">
+        <!-- Page Header / Ticker Bar / Training CTA -->
+        <app-page-header></app-page-header>
+        <router-outlet />
+    </section>
+</main>

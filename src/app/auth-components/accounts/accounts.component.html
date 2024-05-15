@@ -1,0 +1,56 @@
+<div class="grid">
+    <div class="col-12">
+        <p-card>
+            <ng-template pTemplate="header">
+                <div class="card-title">
+                    <h2>List View</h2>
+                </div>
+                <div class="card-controls">
+                    <!-- Edit -->
+                    <span class="control-item">
+                        <p-button icon="pi pi-pen-to-square" pTooltip="Edit"
+                            tooltipPosition="top"></p-button>
+                        <p-menu appendTo="body" #menu [model]="items" [popup]="true"></p-menu>
+
+                    </span>
+
+                    <span class="control-item">
+                        <p-button label="Secondary" [outlined]="true" severity="secondary" />
+                    </span>
+
+                    <!-- Create Account -->
+                    <span class="control-item">
+                        <p-button label="Create" icon="pi pi-plus" severity="warning" />
+                    </span>
+                </div>
+            </ng-template>
+            <p-table [value]="products" [tableStyle]="{'min-width': '60rem'}">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="code" style="width:20%">
+                            Code <p-sortIcon field="code" />
+                        </th>
+                        <th pSortableColumn="name" style="width:20%">
+                            Name <p-sortIcon field="name" />
+                        </th>
+                        <th pSortableColumn="category" style="width:20%">
+                            Category <p-sortIcon field="category" />
+                        </th>
+                        <th pSortableColumn="quantity" style="width:20%">
+                            Quantity <p-sortIcon field="quantity" />
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{ product.code }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.category }}</td>
+                        <td>{{ product.quantity }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-card>
+    </div>
+    
+</div>
